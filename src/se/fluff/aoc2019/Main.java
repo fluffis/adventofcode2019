@@ -2,6 +2,8 @@ package se.fluff.aoc2019;
 
 import java.io.File;
 import java.io.IOException;
+import java.lang.reflect.InvocationTargetException;
+import java.lang.reflect.Method;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
@@ -20,46 +22,33 @@ public class Main {
 
         SimpleDateFormat sdf = new SimpleDateFormat("dd");
         Date d = new Date();
-        String clazzname = "se.fluff.aoc2019.days.Day";
-        String prodInput = basePath + "data/";
         String day = args.length > 0 ? args[0] : sdf.format(d);
+        String clazzname = "se.fluff.aoc2019.days.Day" + day;
+        String prodInput = basePath + "data/" + day + ".in";
 
-        clazzname += day;
-        prodInput += day + ".in";
-
-        System.err.println("Running " + clazzname);
+        System.out.println("Running " + clazzname);
 
         try {
             Class<?> clazz = Class.forName(clazzname);
             AocDay aocDay = (AocDay) clazz.newInstance();
 
-            if(runTests(aocDay, "a", day)) {
-                System.out.println("For puzzle A: All tests successful, running production");
-                Scanner ina = new Scanner(new File(prodInput));
-                System.out.println("For puzzle A, answer is: " + aocDay.a(ina));
-                ina.close();
-            }
-            else {
-                System.out.println("For puzzle A, testing failed, exiting");
-                System.exit(1);
-            }
-            System.out.println("=======================================");
-            if(runTests(aocDay, "b", day)) {
-                System.out.println("For puzzle B: All tests successful, running production");
-                Scanner inb = new Scanner(new File(prodInput));
-                System.out.println("For puzzle B, answer is: " + aocDay.b(inb));
-                inb.close();
-            }
-            else {
-                System.out.println("For puzzle B, testing failed, exiting");
-                System.exit(1);
-            }
+            for(String puzzle : new String[] { "a", "b" }) {
+                Method method = clazz.getDeclaredMethod(puzzle, Scanner.class);
 
-        } catch (InstantiationException e) {
-            e.printStackTrace();
-        } catch (IllegalAccessException e) {
-            e.printStackTrace();
-        } catch (ClassNotFoundException e) {
+                if(runTests(aocDay, puzzle, day)) {
+                    System.out.println("Puzzle " + puzzle + ": All tests successful, running production");
+                    Scanner in = new Scanner(new File(prodInput));
+                    System.out.println("Puzzle " + puzzle + ", answer is: " + method.invoke(aocDay, in));
+                    in.close();
+                }
+                else {
+                    System.out.println("Puzzle " + puzzle + ", testing failed, exiting");
+                    System.exit(1);
+                }
+
+                System.out.println("=======================================");
+            }
+        } catch (InstantiationException | IllegalAccessException | ClassNotFoundException | NoSuchMethodException | InvocationTargetException e) {
             e.printStackTrace();
         }
     }
@@ -71,6 +60,7 @@ public class Main {
         List<String> infiles = walk.filter(Files::isRegularFile)
                 .map(Path::toString)
                 .filter(x -> x.endsWith(".in"))
+                .sorted()
                 .collect(Collectors.toList());
 
         System.out.println("Running " + infiles.size() + " tests for puzzle " + puzzle);
