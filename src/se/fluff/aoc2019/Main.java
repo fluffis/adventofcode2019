@@ -55,6 +55,16 @@ public class Main {
 
     public static boolean runTests(AocDay aocDay, String puzzle, String day) throws IOException {
 
+        File testDirectory = new File(basePath + "tests/" + day + "/" + puzzle);
+        if(!testDirectory.exists() || !testDirectory.isDirectory()) {
+            System.out.println("WARNING: Test directory not configured, not running tests");
+            return true;
+        }
+        else if(testDirectory.list().length == 0) {
+            System.out.println("WARNING: Test directory is empty, not running tests");
+            return true;
+        }
+
         Stream<Path> walk = Files.walk(Paths.get(basePath + "tests/" + day + "/" + puzzle));
 
         List<String> infiles = walk.filter(Files::isRegularFile)
