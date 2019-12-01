@@ -15,8 +15,9 @@ mkdir $basepath . qq!/tests/$day!;
 mkdir $basepath . qq!/tests/$day/a!;
 mkdir $basepath . qq!/tests/$day/b!;
 
-open(FH, '>', $basepath . qq!/days/Day$day.java!);
-print FH <<"END";
+if(!-e $basepath . qq!/days/Day$day.java!) {
+    open(FH, '>', $basepath . qq!/days/Day$day.java!);
+    print FH <<"END";
 package se.fluff.aoc2019.days;
 
 import se.fluff.aoc2019.AocDay;
@@ -42,7 +43,7 @@ public class Day$day extends AocDay {
     }
 }
 END
-    
+}
 
 open(FH, '>', $basepath . qq!/data/$day.in!);
 print "Enter input from AoC, thereafter enter ! on a standalone line:\n";
