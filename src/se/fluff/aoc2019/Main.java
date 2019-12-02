@@ -38,7 +38,10 @@ public class Main {
                 if(runTests(aocDay, puzzle, day)) {
                     System.out.println("Puzzle " + puzzle + ": All tests successful, running production");
                     Scanner in = new Scanner(new File(prodInput));
+                    long starttime = System.currentTimeMillis();
                     System.out.println("Puzzle " + puzzle + ", answer is: " + method.invoke(aocDay, in));
+                    long ttc = System.currentTimeMillis() - starttime;
+                    System.out.println("Execution took " + ttc + " ms");
                     in.close();
                 }
                 else {
