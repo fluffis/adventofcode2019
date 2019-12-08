@@ -90,11 +90,15 @@ public class Main {
 
             Scanner in = new Scanner(i);
             String res = "";
-            if(puzzle.equals("a"))
-                res = aocDay.a(in);
-            else
-                res = aocDay.b(in);
-
+            try {
+                if (puzzle.equals("a"))
+                    res = aocDay.a(in);
+                else
+                    res = aocDay.b(in);
+            }
+            catch(Exception e) {
+                e.printStackTrace();
+            }
             if(expectedResult.equals(res)) {
                 System.out.println("SUCCESS: Test " + i.getName() + " returned " + res);
                 success++;
