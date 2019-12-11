@@ -3,24 +3,28 @@ package se.fluff.aoc2019;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
+import java.util.concurrent.BlockingQueue;
+import java.util.concurrent.TimeUnit;
 
 /**
  * Created by Fluff on 2019-12-09.
  */
-public class LongCodeMachine {
+public class LongCodeMachine implements Runnable {
 
     private HashMap<Integer, Long> data;
-    private ArrayList<Long> inputs = new ArrayList<>();
-    private ArrayList<Long> outputs = new ArrayList<>();
+    private BlockingQueue<Long> inputs;
+    private BlockingQueue<Long> outputs;
     private ArrayList<Long> seenoutputs = new ArrayList<>();
     private boolean halted = false;
     private int id;
     private int steppos = 0;
     private int relbase = 0;
 
-    public LongCodeMachine(HashMap<Integer, Long> data, int id) {
+    public LongCodeMachine(HashMap<Integer, Long> data, int id, BlockingQueue<Long> inputs, BlockingQueue<Long> outputs) {
         this.data = (HashMap<Integer, Long>) data.clone();
         this.id = id;
+        this.inputs = inputs;
+        this.outputs = outputs;
     }
 
     public void addInput(Long input) {
@@ -28,14 +32,23 @@ public class LongCodeMachine {
     }
 
     public Long read() {
-        return outputs.remove(0);
+        try {
+            return outputs.poll(1L, TimeUnit.DAYS);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+        return null;
     }
 
     public List<Long> getOutputs() {
         List<Long> outputsAvailable = new ArrayList<>();
 
         while (!outputs.isEmpty()) {
-            outputsAvailable.add(outputs.remove(0));
+            try {
+                outputsAvailable.add(outputs.take());
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
         }
 
         return outputsAvailable;
@@ -57,9 +70,6 @@ public class LongCodeMachine {
             String opcodes = String.format("%05d", opcode);
             opcode = Long.parseLong(opcodes.substring(opcodes.length() - 2));
 
-
-            int[] paramMode = new int[opcodes.length() - 2];
-            //List<MachineParam> parameters = new ArrayList<>();
             HashMap<Integer, MachineParam> parameters = new HashMap<>();
             for(int c = opcodes.length() - 3; c >= 0; c--) {
                 int p = Integer.parseInt(opcodes.substring(c, c + 1));
@@ -92,8 +102,13 @@ public class LongCodeMachine {
                 steppos += 4;
             }
             else if(opcode == 3) {
-                if(inputs.size() > 0)
-                    this.data.put(parameters.get(0).getAddress(), inputs.remove(0));
+                if(inputs.size() > 0) {
+                    try {
+                        this.data.put(parameters.get(0).getAddress(), inputs.poll(10L, TimeUnit.DAYS));
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
+                    }
+                }
                 else
                     break;
 
