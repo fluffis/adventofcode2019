@@ -126,7 +126,7 @@ public class Day11 extends AocDay {
                 Point p = new Point(x, y);
                 if(painting.containsKey(p)) {
                     if(painting.get(p) == 1)
-                        System.out.print("#");
+                        System.out.print("█");
                     else
                         System.out.print(" ");
                 }
