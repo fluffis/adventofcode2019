@@ -40,6 +40,18 @@ public class LongCodeMachine implements Runnable {
         return null;
     }
 
+
+    public void addInputString(String str) {
+        addInputString(str, true);
+    }
+    public void addInputString(String str, boolean endWithCr) {
+        for(char c : str.toCharArray())
+            inputs.add((long) (int) c);
+
+        if(endWithCr)
+            inputs.add(10L);
+    }
+
     public List<Long> getOutputs() {
         List<Long> outputsAvailable = new ArrayList<>();
 
