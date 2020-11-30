@@ -1,10 +1,9 @@
 package se.fluff.aoc2019.days;
 
-import se.fluff.aoc2019.AocDay;
+import se.fluff.aoc.AocDay;
 
 import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.Map;
 import java.util.Scanner;
 
 /**

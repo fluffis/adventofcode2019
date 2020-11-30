@@ -1,7 +1,8 @@
-package se.fluff.aoc2019;
+package se.fluff.aoc;
 
 import java.io.File;
 import java.io.IOException;
+import java.lang.reflect.Constructor;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import java.nio.file.Files;
@@ -16,21 +17,24 @@ import java.util.stream.Stream;
 
 public class Main {
 
-    private static String basePath = "/home/fluff/git/advent_of_code_2019/out/production/advent_of_code_2019/se/fluff/aoc2019/";
+    private static String basePath = "/home/fluff/git/adventofcode2019/src/se/fluff/";
 
     public static void main(String[] args) throws IOException {
 
-        SimpleDateFormat sdf = new SimpleDateFormat("dd");
+        SimpleDateFormat dayformat = new SimpleDateFormat("dd");
+        SimpleDateFormat yearformat = new SimpleDateFormat("yyyy");
         Date d = new Date();
-        String day = args.length > 0 ? args[0] : sdf.format(d);
-        String clazzname = "se.fluff.aoc2019.days.Day" + day;
-        String prodInput = basePath + "data/" + day + ".in";
+        String day = args.length > 0 ? args[0] : dayformat.format(d);
+        String year = args.length > 1 ? args[1] : yearformat.format(d);
+        String clazzname = "se.fluff.aoc" + year + ".days.Day" + day;
+        String prodInput = basePath + "aoc" + year + "/data/" + day + ".in";
 
         System.out.println("Running " + clazzname);
 
         try {
             Class<?> clazz = Class.forName(clazzname);
-            AocDay aocDay = (AocDay) clazz.newInstance();
+            Constructor<?> constructor = clazz.getDeclaredConstructor();
+            AocDay aocDay = (AocDay) constructor.newInstance();
 
             for(String puzzle : new String[] { "a", "b" }) {
                 Method method = clazz.getDeclaredMethod(puzzle, Scanner.class);

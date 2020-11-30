@@ -1,6 +1,6 @@
 package se.fluff.aoc2019.days;
 
-import se.fluff.aoc2019.AocDay;
+import se.fluff.aoc.AocDay;
 import se.fluff.aoc2019.LongCodeMachine;
 
 import java.awt.*;

@@ -3,7 +3,7 @@
 use warnings;
 use strict;
 
-my $basepath = "/home/fluff/git/advent_of_code_2019/src/se/fluff/aoc2019";
+my $basepath = "/home/fluff/git/advent_of_code_2019/src/se/fluff/aoc2020";
 
 my $day = $ARGV[0];
 if(length($day) < 2) {
@@ -24,7 +24,7 @@ import se.fluff.aoc2019.AocDay;
 import java.util.Scanner;
 
 /**
- * Created by Fluff on 2019-12-$day.
+ * Created by Fluff on 2020-12-$day.
  */
 public class Day$day extends AocDay {
 

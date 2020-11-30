@@ -1,4 +1,4 @@
-package se.fluff.aoc2019;
+package se.fluff.aoc;
 
 import java.util.Scanner;
 

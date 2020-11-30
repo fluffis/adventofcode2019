@@ -1,6 +1,4 @@
-package se.fluff.aoc2019;
-
-import java.util.Scanner;
+package se.fluff.aoc;
 
 /**
  * Created by Fluff on 2019-12-01.
