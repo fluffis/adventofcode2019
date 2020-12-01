@@ -3,7 +3,7 @@
 use warnings;
 use strict;
 
-my $basepath = "/home/fluff/git/advent_of_code_2019/src/se/fluff/aoc2020";
+my $basepath = "/home/fluff/git/adventofcode2019/src/se/fluff/aoc2020";
 
 my $day = $ARGV[0];
 if(length($day) < 2) {

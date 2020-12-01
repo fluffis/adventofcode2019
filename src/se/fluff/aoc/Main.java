@@ -28,6 +28,7 @@ public class Main {
         String year = args.length > 1 ? args[1] : yearformat.format(d);
         String clazzname = "se.fluff.aoc" + year + ".days.Day" + day;
         String prodInput = basePath + "aoc" + year + "/data/" + day + ".in";
+        String testPath = basePath + "aoc" + year + "/tests/" + day + "/";
 
         System.out.println("Running " + clazzname);
 
@@ -39,7 +40,7 @@ public class Main {
             for(String puzzle : new String[] { "a", "b" }) {
                 Method method = clazz.getDeclaredMethod(puzzle, Scanner.class);
 
-                if(runTests(aocDay, puzzle, day)) {
+                if(runTests(testPath, aocDay, puzzle)) {
                     System.out.println("Puzzle " + puzzle + ": All tests successful, running production");
                     Scanner in = new Scanner(new File(prodInput));
                     long starttime = System.currentTimeMillis();
@@ -60,9 +61,9 @@ public class Main {
         }
     }
 
-    public static boolean runTests(AocDay aocDay, String puzzle, String day) throws IOException {
+    public static boolean runTests(String testPath, AocDay aocDay, String puzzle) throws IOException {
 
-        File testDirectory = new File(basePath + "tests/" + day + "/" + puzzle);
+        File testDirectory = new File(testPath + puzzle);
         if(!testDirectory.exists() || !testDirectory.isDirectory()) {
             System.out.println("WARNING: Test directory not configured, not running tests");
             return true;
@@ -72,7 +73,7 @@ public class Main {
             return true;
         }
 
-        Stream<Path> walk = Files.walk(Paths.get(basePath + "tests/" + day + "/" + puzzle));
+        Stream<Path> walk = Files.walk(Paths.get(testPath + puzzle));
 
         List<String> infiles = walk.filter(Files::isRegularFile)
                 .map(Path::toString)
