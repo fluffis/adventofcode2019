@@ -6,6 +6,9 @@ use strict;
 my $basepath = "/home/fluff/git/adventofcode2019/src/se/fluff/aoc2020";
 
 my $day = $ARGV[0];
+my $year = `date +"%Y"`;
+chomp($year);
+
 if(length($day) < 2) {
     print "Must supply day as argument";
     exit;
@@ -18,13 +21,13 @@ mkdir $basepath . qq!/tests/$day/b!;
 if(!-e $basepath . qq!/days/Day$day.java!) {
     open(FH, '>', $basepath . qq!/days/Day$day.java!);
     print FH <<"END";
-package se.fluff.aoc2019.days;
+package se.fluff.aoc$year.days;
 
-import se.fluff.aoc2019.AocDay;
+import se.fluff.aoc.AocDay;
 import java.util.Scanner;
 
 /**
- * Created by Fluff on 2020-12-$day.
+ * Created by Fluff on $year-12-$day.
  */
 public class Day$day extends AocDay {
 
