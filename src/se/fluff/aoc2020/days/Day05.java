@@ -21,15 +21,15 @@ public class Day05 extends AocDay {
             bi.add(in.nextLine());
         }
 
-        int maxbid = 0;
+        int max = 0;
         for(String s : bi) {
             int bid = getSeatId(s);
 
-            if(bid > maxbid)
-                maxbid = bid;
+            if(bid > max)
+                max = bid;
         }
 
-        return String.valueOf(maxbid);
+        return String.valueOf(max);
     }
 
     @Override
@@ -38,28 +38,21 @@ public class Day05 extends AocDay {
         while(in.hasNext()) {
             bi.add(in.nextLine());
         }
-        int max = 0;
+
         ArrayList<Integer> seats = new ArrayList<>();
-        for(String s : bi) {
-            int seatId = getSeatId(s);
-            seats.add(seatId);
-            if(seatId > max)
-                max = seatId;
-        }
-        for(int i = 1; i < max; i++) {
-            if(!seats.contains(i) && seats.contains(i+1) && seats.contains(i-1))
+        for(String s : bi)
+            seats.add(getSeatId(s));
+
+        for(int i = 1; i < seats.stream().max(Integer::compare).get(); i++) {
+            if(!seats.contains(i) && seats.contains(i + 1) && seats.contains(i - 1))
                 return String.valueOf(i);
         }
         return null;
     }
 
     private int getSeatId(String s) {
-        s = s
-                .replace("F", "0")
-                .replace("L", "0")
-                .replace("B", "1")
-                .replace("R", "1");
-
-        return Integer.parseInt(s, 2);
+        return Integer.parseInt(s
+                .replaceAll("[FL]", "0")
+                .replaceAll("[BR]", "1"), 2);
     }
 }
