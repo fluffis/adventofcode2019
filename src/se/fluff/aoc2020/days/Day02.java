@@ -16,7 +16,7 @@ public class Day02 extends AocDay {
     }
 
     @Override
-    public String a(Scanner in) {
+    public String a(Scanner in, boolean isTest) {
 
         Pattern p = Pattern.compile("(\\d+)-(\\d+) (\\w): (.*)");
         int correct = 0;
@@ -39,7 +39,7 @@ public class Day02 extends AocDay {
     }
 
     @Override
-    public String b(Scanner in) {
+    public String b(Scanner in, boolean isTest) {
 
         Pattern p = Pattern.compile("(\\d+)-(\\d+) (\\w): (.*)");
         int correct = 0;

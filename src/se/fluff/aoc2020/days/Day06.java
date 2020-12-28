@@ -16,7 +16,7 @@ public class Day06 extends AocDay {
     }
 
     @Override
-    public String a(Scanner in) {
+    public String a(Scanner in, boolean isTest) {
 
         int count = 0;
         ArrayList<GroupOfForms> gofs = new ArrayList<>();
@@ -39,7 +39,7 @@ public class Day06 extends AocDay {
     }
 
     @Override
-    public String b(Scanner in) {
+    public String b(Scanner in, boolean isTest) {
         int count = 0;
         ArrayList<GroupOfForms> gofs = new ArrayList<>();
         GroupOfForms gof = new GroupOfForms();

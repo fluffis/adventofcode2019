@@ -16,7 +16,7 @@ public class Day11 extends AocDay {
     }
 
     @Override
-    public String a(Scanner in) {
+    public String a(Scanner in, boolean isTest) {
         int x = 0;
         int y = 0;
 
@@ -44,7 +44,7 @@ public class Day11 extends AocDay {
     }
 
     @Override
-    public String b(Scanner in) {
+    public String b(Scanner in, boolean isTest) {
         int x = 0;
         int y = 0;
         HashMap<Point, Character> seats = new HashMap<>();

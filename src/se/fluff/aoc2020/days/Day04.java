@@ -16,7 +16,7 @@ public class Day04 extends AocDay {
     }
 
     @Override
-    public String a(Scanner in) {
+    public String a(Scanner in, boolean isTest) {
 
         ArrayList<Passport> passports = new ArrayList<>();
 
@@ -73,7 +73,7 @@ public class Day04 extends AocDay {
     }
 
     @Override
-    public String b(Scanner in) {
+    public String b(Scanner in, boolean isTest) {
         ArrayList<Passport> passports = new ArrayList<>();
 
         Passport passport = null;

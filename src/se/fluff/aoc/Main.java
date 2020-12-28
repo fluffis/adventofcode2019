@@ -66,7 +66,7 @@ public class Main {
             AocDay aocDay = (AocDay) constructor.newInstance();
 
             for(String puzzle : new String[] { "a", "b" }) {
-                Method method = clazz.getDeclaredMethod(puzzle, Scanner.class);
+                Method method = clazz.getDeclaredMethod(puzzle, Scanner.class, boolean.class);
 
                 long starttime = System.currentTimeMillis();
                 if(runTests(testPath, aocDay, puzzle)) {
@@ -76,7 +76,7 @@ public class Main {
 
                     Scanner in = new Scanner(new File(prodInput));
                     starttime = System.currentTimeMillis();
-                    System.out.println("Puzzle " + puzzle + ", answer is: " + method.invoke(aocDay, in));
+                    System.out.println("Puzzle " + puzzle + ", answer is: " + method.invoke(aocDay, in, false));
                     ttc = System.currentTimeMillis() - starttime;
                     System.out.println("Puzzle execution took " + ttc + " ms");
                     in.close();
@@ -129,9 +129,9 @@ public class Main {
             String res = "";
             try {
                 if (puzzle.equals("a"))
-                    res = aocDay.a(in);
+                    res = aocDay.a(in, true);
                 else
-                    res = aocDay.b(in);
+                    res = aocDay.b(in, true);
             }
             catch(Exception e) {
                 e.printStackTrace();

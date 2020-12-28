@@ -2,7 +2,6 @@ package se.fluff.aoc2020.days;
 
 import se.fluff.aoc.AocDay;
 
-import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.Scanner;
@@ -17,7 +16,7 @@ public class Day09 extends AocDay {
     }
 
     @Override
-    public String a(Scanner in) {
+    public String a(Scanner in, boolean isTest) {
         ArrayList<Long> numbers = new ArrayList<>();
         while(in.hasNext())
             numbers.add(Long.parseLong(in.nextLine()));
@@ -44,7 +43,7 @@ public class Day09 extends AocDay {
     }
 
     @Override
-    public String b(Scanner in) {
+    public String b(Scanner in, boolean isTest) {
         long weak = -1;
         ArrayList<Long> numbers = new ArrayList<>();
         while(in.hasNext())

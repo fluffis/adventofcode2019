@@ -14,7 +14,7 @@ public class Day22 extends AocDay {
     }
 
     @Override
-    public String a(Scanner in) {
+    public String a(Scanner in, boolean isTest) {
 
         Deck d1 = new Deck();
         Deck d2 = new Deck();
@@ -51,7 +51,7 @@ public class Day22 extends AocDay {
     }
 
     @Override
-    public String b(Scanner in) {
+    public String b(Scanner in, boolean isTest) {
 
         Deck d1 = new Deck();
         Deck d2 = new Deck();

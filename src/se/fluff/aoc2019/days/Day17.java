@@ -20,7 +20,7 @@ public class Day17 extends AocDay {
     }
 
     @Override
-    public String a(Scanner in) {
+    public String a(Scanner in, boolean isTest) {
 
         String line = in.nextLine();
         int i = 0;
@@ -75,7 +75,7 @@ public class Day17 extends AocDay {
     }
 
     @Override
-    public String b(Scanner in) {
+    public String b(Scanner in, boolean isTest) {
 
         intcode.put(0, 2L);
 

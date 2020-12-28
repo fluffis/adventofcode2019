@@ -20,7 +20,7 @@ public class Day21 extends AocDay {
     }
 
     @Override
-    public String a(Scanner in) {
+    public String a(Scanner in, boolean isTest) {
 
         String line = in.nextLine();
         int i = 0;
@@ -59,7 +59,7 @@ public class Day21 extends AocDay {
     }
 
     @Override
-    public String b(Scanner in) {
+    public String b(Scanner in, boolean isTest) {
 
         ArrayBlockingQueue<Long> inputs = new ArrayBlockingQueue<>(10000);
         ArrayBlockingQueue<Long> outputs = new ArrayBlockingQueue<>(10000);

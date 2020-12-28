@@ -16,7 +16,7 @@ public class Day10 extends AocDay {
     }
 
     @Override
-    public String a(Scanner in) {
+    public String a(Scanner in, boolean isTest) {
 
         HashMap<Point, Asteroid> map = new HashMap<>();
         int y = 0;
@@ -45,7 +45,7 @@ public class Day10 extends AocDay {
     }
 
     @Override
-    public String b(Scanner in) {
+    public String b(Scanner in, boolean isTest) {
 
         HashMap<Point, Asteroid> map = new HashMap<>();
         int y = 0;

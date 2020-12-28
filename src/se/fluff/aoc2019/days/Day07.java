@@ -18,7 +18,7 @@ public class Day07 extends AocDay {
     }
 
     @Override
-    public String a(Scanner in) {
+    public String a(Scanner in, boolean isTest) {
 
         int v = 0;
         HashMap<Integer, Integer> intcode = new HashMap<>();
@@ -54,7 +54,7 @@ public class Day07 extends AocDay {
     }
 
     @Override
-    public String b(Scanner in) {
+    public String b(Scanner in, boolean isTest) {
         int v = 0;
         HashMap<Integer, Integer> intcode = new HashMap<>();
 

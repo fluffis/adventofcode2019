@@ -7,7 +7,7 @@ import java.util.Scanner;
  */
 public interface DayInterface {
 
-    String a(Scanner in) throws Exception;
-    String b(Scanner in);
+    String a(Scanner in, boolean isTest) throws Exception;
+    String b(Scanner in, boolean isTest);
 
 }

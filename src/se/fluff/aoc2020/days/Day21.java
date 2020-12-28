@@ -15,7 +15,7 @@ public class Day21 extends AocDay {
     }
 
     @Override
-    public String a(Scanner in) {
+    public String a(Scanner in, boolean isTest) {
         ArrayList<Food> foods = new ArrayList<>();
         HashSet<String> allergens = new HashSet<>();
         HashSet<String> allingredients = new HashSet<>();
@@ -65,7 +65,7 @@ public class Day21 extends AocDay {
     }
 
     @Override
-    public String b(Scanner in) {
+    public String b(Scanner in, boolean isTest) {
         ArrayList<Food> foods = new ArrayList<>();
         HashSet<String> allergens = new HashSet<>();
         while (in.hasNext()) {

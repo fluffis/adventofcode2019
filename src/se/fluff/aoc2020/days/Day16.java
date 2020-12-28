@@ -15,7 +15,7 @@ public class Day16 extends AocDay {
     }
 
     @Override
-    public String a(Scanner in) {
+    public String a(Scanner in, boolean isTest) {
         ArrayList<Rule> rules = new ArrayList<>();
         ArrayList<Ticket> tickets = new ArrayList<>();
         while(in.hasNext()) {
@@ -35,7 +35,7 @@ public class Day16 extends AocDay {
     }
 
     @Override
-    public String b(Scanner in) {
+    public String b(Scanner in, boolean isTest) {
 
         Ticket myticket = new Ticket();
         ArrayList<Rule> rules = new ArrayList<>();

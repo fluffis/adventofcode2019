@@ -5,7 +5,6 @@ import se.fluff.aoc.AocDay;
 
 import java.awt.*;
 import java.math.BigInteger;
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Scanner;
@@ -20,7 +19,7 @@ public class Day03 extends AocDay {
     }
 
     @Override
-    public String a(Scanner in) {
+    public String a(Scanner in, boolean isTest) {
         HashMap<Point, Boolean> map = new HashMap<>();
         int x = -1;
         int y = -1;
@@ -44,7 +43,7 @@ public class Day03 extends AocDay {
     }
 
     @Override
-    public String b(Scanner in) {
+    public String b(Scanner in, boolean isTest) {
         HashMap<Point, Boolean> map = new HashMap<>();
         int x = -1;
         int y = -1;

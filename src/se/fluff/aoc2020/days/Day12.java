@@ -15,7 +15,7 @@ public class Day12 extends AocDay {
     }
 
     @Override
-    public String a(Scanner in) {
+    public String a(Scanner in, boolean isTest) {
 
         Point p = new Point(0, 0);
         int direction = 90;
@@ -113,7 +113,7 @@ public class Day12 extends AocDay {
     }
 
     @Override
-    public String b(Scanner in) {
+    public String b(Scanner in, boolean isTest) {
         Point ship = new Point(0, 0);
         Point waypoint = new Point(-1, 10);
         int direction = 90;

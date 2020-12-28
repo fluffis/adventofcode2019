@@ -14,7 +14,7 @@ public class Day07 extends AocDay {
     }
 
     @Override
-    public String a(Scanner in) {
+    public String a(Scanner in, boolean isTest) {
 
         HashMap<String, Bag> bags = new HashMap<>();
         while(in.hasNext()) {
@@ -42,7 +42,7 @@ public class Day07 extends AocDay {
     }
 
     @Override
-    public String b(Scanner in) {
+    public String b(Scanner in, boolean isTest) {
         HashMap<String, Bag> bags = new HashMap<>();
         while(in.hasNext()) {
             String s = in.nextLine().replace(".", "");

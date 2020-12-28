@@ -3,10 +3,6 @@ package se.fluff.aoc2020.days;
 import se.fluff.aoc.AocDay;
 
 import java.util.*;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
-import java.util.stream.Collectors;
-import java.util.stream.IntStream;
 
 /**
  * Created by Fluff on 2020-12-19.
@@ -20,7 +16,7 @@ public class Day19 extends AocDay {
     }
 
     @Override
-    public String a(Scanner in) {
+    public String a(Scanner in, boolean isTest) {
 
         while(in.hasNext()) {
             String s = in.nextLine();
@@ -38,7 +34,7 @@ public class Day19 extends AocDay {
     }
 
     @Override
-    public String b(Scanner in) {
+    public String b(Scanner in, boolean isTest) {
         lookup = new HashMap<>();
         messages = new ArrayList<>();
         while(in.hasNext()) {

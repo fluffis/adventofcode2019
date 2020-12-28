@@ -21,7 +21,7 @@ public class Day06 extends AocDay {
     }
 
     @Override
-    public String a(Scanner in) {
+    public String a(Scanner in, boolean isTest) {
 
         orbits = new HashMap<>();
         revOrbits = new HashMap<>();
@@ -46,7 +46,7 @@ public class Day06 extends AocDay {
 
 
     @Override
-    public String b(Scanner in) {
+    public String b(Scanner in, boolean isTest) {
 
         String start = revOrbits.get("YOU");
         String goal = revOrbits.get("SAN");

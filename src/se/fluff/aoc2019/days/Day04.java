@@ -17,7 +17,7 @@ public class Day04 extends AocDay {
     }
 
     @Override
-    public String a(Scanner in) {
+    public String a(Scanner in, boolean isTest) {
         String range = in.nextLine();
         String[] ranges = range.split("-");
 
@@ -43,7 +43,7 @@ public class Day04 extends AocDay {
     }
 
     @Override
-    public String b(Scanner in) {
+    public String b(Scanner in, boolean isTest) {
         String range = in.nextLine();
         String[] ranges = range.split("-");
 

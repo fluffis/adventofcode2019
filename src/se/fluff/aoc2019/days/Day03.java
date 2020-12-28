@@ -16,7 +16,7 @@ public class Day03 extends AocDay {
     }
 
     @Override
-    public String a(Scanner in) {
+    public String a(Scanner in, boolean isTest) {
 
         String wire1 = in.nextLine();
         String wire2 = in.nextLine();
@@ -39,7 +39,7 @@ public class Day03 extends AocDay {
     }
 
     @Override
-    public String b(Scanner in) {
+    public String b(Scanner in, boolean isTest) {
 
         String wire1 = in.nextLine();
         String wire2 = in.nextLine();

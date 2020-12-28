@@ -4,7 +4,6 @@ import se.fluff.aoc.AocDay;
 
 import java.math.BigInteger;
 import java.util.*;
-import java.util.stream.Stream;
 
 /**
  * Created by Fluff on 2020-12-13.
@@ -16,7 +15,7 @@ public class Day13 extends AocDay {
     }
 
     @Override
-    public String a(Scanner in) {
+    public String a(Scanner in, boolean isTest) {
         long ts = Long.parseLong(in.nextLine());
         String[] schedule = in.nextLine().split(",");
 
@@ -40,7 +39,7 @@ public class Day13 extends AocDay {
     }
 
     @Override
-    public String b(Scanner in) {
+    public String b(Scanner in, boolean isTest) {
         long ts = Long.parseLong(in.nextLine());
         String[] schedule = in.nextLine().split(",");
 

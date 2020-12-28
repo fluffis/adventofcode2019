@@ -14,7 +14,7 @@ public class Day15 extends AocDay {
     }
 
     @Override
-    public String a(Scanner in) {
+    public String a(Scanner in, boolean isTest) {
         String[] s = in.nextLine().split(",");
         int[] start = Arrays.stream(s).mapToInt(Integer::parseInt).toArray();
         HashMap<Integer, Num> spoken = new HashMap<>();
@@ -38,7 +38,7 @@ public class Day15 extends AocDay {
     }
 
     @Override
-    public String b(Scanner in) {
+    public String b(Scanner in, boolean isTest) {
         String[] s = in.nextLine().split(",");
         int[] start = Arrays.stream(s).mapToInt(Integer::parseInt).toArray();
         HashMap<Integer, Num> spoken = new HashMap<>();

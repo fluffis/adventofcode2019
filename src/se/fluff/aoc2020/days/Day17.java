@@ -2,9 +2,7 @@ package se.fluff.aoc2020.days;
 
 import se.fluff.aoc.AocDay;
 
-import java.awt.*;
 import java.util.*;
-import java.util.stream.LongStream;
 
 /**
  * Created by Fluff on 2020-12-17.
@@ -16,7 +14,7 @@ public class Day17 extends AocDay {
     }
 
     @Override
-    public String a(Scanner in) {
+    public String a(Scanner in, boolean isTest) {
 
         HashSet<Cube> g2 = new HashSet<>();
         long y = 0L;
@@ -41,7 +39,7 @@ public class Day17 extends AocDay {
     }
 
     @Override
-    public String b(Scanner in) {
+    public String b(Scanner in, boolean isTest) {
 
         HashSet<Cube> g2 = new HashSet<>();
         long y = 0L;

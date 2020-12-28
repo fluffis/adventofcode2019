@@ -16,7 +16,7 @@ public class Day14 extends AocDay {
     }
 
     @Override
-    public String a(Scanner in) {
+    public String a(Scanner in, boolean isTest) {
 
         HashMap<Integer,Long> memory = new HashMap<>();
         Pattern p = Pattern.compile("mem\\[(\\d+)\\] = (\\d+)");
@@ -40,7 +40,7 @@ public class Day14 extends AocDay {
     }
 
     @Override
-    public String b(Scanner in) {
+    public String b(Scanner in, boolean isTest) {
 
         HashMap<Long,Long> memory = new HashMap<>();
         Pattern p = Pattern.compile("mem\\[(\\d+)\\] = (\\d+)");

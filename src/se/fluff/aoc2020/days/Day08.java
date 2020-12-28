@@ -17,7 +17,7 @@ public class Day08 extends AocDay {
     }
 
     @Override
-    public String a(Scanner in) {
+    public String a(Scanner in, boolean isTest) {
         long acc = 0L;
         ArrayList<Instruction> instructions = new ArrayList<>();
         ArrayList<Integer> accessedInstructions = new ArrayList<>();
@@ -50,7 +50,7 @@ public class Day08 extends AocDay {
     }
 
     @Override
-    public String b(Scanner in) {
+    public String b(Scanner in, boolean isTest) {
         ArrayList<Instruction> instructions = new ArrayList<>();
 
         while(in.hasNext()) {

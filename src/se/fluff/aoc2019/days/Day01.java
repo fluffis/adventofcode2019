@@ -14,7 +14,7 @@ public class Day01 extends AocDay {
     }
 
     @Override
-    public String a(Scanner in) {
+    public String a(Scanner in, boolean isTest) {
         int totalFuel = 0;
 
         while(in.hasNext()) {
@@ -26,7 +26,7 @@ public class Day01 extends AocDay {
     }
 
     @Override
-    public String b(Scanner in) {
+    public String b(Scanner in, boolean isTest) {
         int totalFuel = 0;
 
         while(in.hasNext()) {

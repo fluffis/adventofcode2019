@@ -15,7 +15,7 @@ public class Day05 extends AocDay {
     }
 
     @Override
-    public String a(Scanner in) {
+    public String a(Scanner in, boolean isTest) {
         ArrayList<String> bi = new ArrayList<>();
         while(in.hasNext()) {
             bi.add(in.nextLine());
@@ -33,7 +33,7 @@ public class Day05 extends AocDay {
     }
 
     @Override
-    public String b(Scanner in) {
+    public String b(Scanner in, boolean isTest) {
         ArrayList<String> bi = new ArrayList<>();
         while(in.hasNext()) {
             bi.add(in.nextLine());

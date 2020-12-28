@@ -16,7 +16,7 @@ public class Day08 extends AocDay {
     }
 
     @Override
-    public String a(Scanner in) {
+    public String a(Scanner in, boolean isTest) {
 
         int width = 25;
         int height = 6;
@@ -58,7 +58,7 @@ public class Day08 extends AocDay {
     }
 
     @Override
-    public String b(Scanner in) {
+    public String b(Scanner in, boolean isTest) {
         int width = 25;
         int height = 6;
 

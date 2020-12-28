@@ -22,7 +22,7 @@ public class Day15 extends AocDay {
     }
 
     @Override
-    public String a(Scanner in) throws Exception {
+    public String a(Scanner in, boolean isTest) throws Exception {
 
         LinkedList<Point> queue = new LinkedList<>();
 
@@ -85,7 +85,7 @@ public class Day15 extends AocDay {
     }
 
     @Override
-    public String b(Scanner in) {
+    public String b(Scanner in, boolean isTest) {
 
         int miny = grid.entrySet().stream().min(Comparator.comparingInt(e -> e.getKey().y)).map(Map.Entry::getKey).get().y;
         int minx = grid.entrySet().stream().min(Comparator.comparingInt(e -> e.getKey().x)).map(Map.Entry::getKey).get().x;
