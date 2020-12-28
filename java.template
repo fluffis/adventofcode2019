@@ -1,0 +1,24 @@
+package se.fluff.aoc$year.days;
+
+import se.fluff.aoc.AocDay;
+import java.util.*;
+
+/**
+ * Created by Fluff on $today.
+ */
+public class Day$day extends AocDay {
+
+    public Day$day() {
+
+    }
+
+    @Override
+    public String a(Scanner in) {
+        return null;
+    }
+
+    @Override
+    public String b(Scanner in) {
+        return null;
+    }
+}
