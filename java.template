@@ -13,12 +13,12 @@ public class Day$day extends AocDay {
     }
 
     @Override
-    public String a(Scanner in) {
+    public String a(Scanner in, boolean isTest) throws Exception {
         return null;
     }
 
     @Override
-    public String b(Scanner in) {
+    public String b(Scanner in, boolean isTest) {
         return null;
     }
 }
