@@ -32,7 +32,7 @@ public class GridUtils {
                             System.out.print(".");
                     }
                     else if(o instanceof Character) {
-                        System.out.print(((char) 0));
+                        System.out.print(((char) o));
                     }
                     else if(o instanceof Integer)
                         System.out.print(String.valueOf(o).charAt(0));
@@ -44,17 +44,25 @@ public class GridUtils {
         }
     }
 
+
+    public static Point[] getNeighbours(Point p, boolean includeDiagonal, boolean includeCenter) {
+        return getNeighbours(p, 1, includeDiagonal, includeCenter);
+    }
     public static Point[] getNeighbours(Point p, boolean includeDiagonal) {
         return getNeighbours(p, 1, includeDiagonal);
     }
 
     public static Point[] getNeighbours(Point p, int radius, boolean includeDiagonal) {
+        return getNeighbours(p, radius, includeDiagonal, false);
+    }
+
+    public static Point[] getNeighbours(Point p, int radius, boolean includeDiagonal, boolean includeCenter) {
 
         ArrayList<Point> neighbours = new ArrayList<>();
         for(int y = p.y - radius; y <= p.y + radius; y++) {
             for (int x = p.x - radius; x <= p.x + radius; x++) {
                 Point n = new Point(x, y);
-                if(n.equals(p))
+                if(n.equals(p) && !includeCenter)
                     continue;
 
                 if(includeDiagonal)
