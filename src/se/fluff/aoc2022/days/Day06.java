@@ -16,53 +16,32 @@ public class Day06 extends AocDay {
     public String a(Scanner in, boolean isTest) throws Exception {
         String l = in.nextLine();
 
-        StringBuilder sb = new StringBuilder();
-        int pos = 0;
-        for(char c : l.toCharArray()) {
-            pos++;
-            sb.append(c);
-            if(sb.length() < 4) {
-                continue;
-            }
-
-            ArrayList<Character> crosscheck = new ArrayList<>();
-            for (char d : sb.toString().toCharArray()) {
-                if(!crosscheck.contains(d))
-                    crosscheck.add(d);
-            }
-
-            if(crosscheck.size() == sb.length()) {
-                break;
-            }
-            sb.replace(0, 1, "");
-        }
-        return String.valueOf(pos);
+        return String.valueOf(findUnique(l, 4));
     }
 
     @Override
     public String b(Scanner in, boolean isTest) {
         String l = in.nextLine();
 
-        StringBuilder sb = new StringBuilder();
+        return String.valueOf(findUnique(l, 14));
+    }
+
+    public int findUnique(String l, int len) {
+        String s = "";
         int pos = 0;
         for(char c : l.toCharArray()) {
             pos++;
-            sb.append(c);
-            if(sb.length() < 14) {
+            s += c;
+            if(s.length() < len) {
                 continue;
             }
 
-            ArrayList<Character> content = new ArrayList<>();
-            for (char d : sb.toString().toCharArray()) {
-                if(!content.contains(d))
-                    content.add(d);
-            }
-
-            if(content.size() == sb.length()) {
+            HashSet<String> cc2 = new HashSet<>(List.of(s.split("")));
+            if(cc2.size() == s.length()) {
                 break;
             }
-            sb.replace(0, 1, "");
+            s = s.replaceFirst("^.", "");
         }
-        return String.valueOf(pos);
+        return pos;
     }
 }
