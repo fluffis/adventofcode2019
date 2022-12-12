@@ -8,6 +8,6 @@ import java.util.Scanner;
 public interface DayInterface {
 
     String a(Scanner in, boolean isTest) throws Exception;
-    String b(Scanner in, boolean isTest);
+    String b(Scanner in, boolean isTest) throws Exception;
 
 }
