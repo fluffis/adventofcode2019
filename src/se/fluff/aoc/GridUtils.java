@@ -40,6 +40,41 @@ public class GridUtils {
                 else
                     System.out.print(filler);
             }
+            System.out.print(" -> " + y);
+            System.out.println();
+        }
+    }
+
+    public static void printGridFlipy(HashMap<Point, ?> grid, char filler) {
+        int miny = grid.entrySet().stream().min(Comparator.comparingInt(e -> e.getKey().y)).map(Map.Entry::getKey).get().y;
+        int minx = grid.entrySet().stream().min(Comparator.comparingInt(e -> e.getKey().x)).map(Map.Entry::getKey).get().x;
+        int maxy = grid.entrySet().stream().max(Comparator.comparingInt(e -> e.getKey().y)).map(Map.Entry::getKey).get().y;
+        int maxx = grid.entrySet().stream().max(Comparator.comparingInt(e -> e.getKey().x)).map(Map.Entry::getKey).get().x;
+
+        for (int y = maxy; y >= miny; y--) {
+            for (int x = minx; x <= maxx; x++) {
+                Point pp = new Point(x, y);
+                if (grid.containsKey(pp)) {
+                    Object o = grid.get(pp);
+                    if(o instanceof String) {
+                        System.out.print(((String) o).charAt(0));
+                    }
+                    else if(o instanceof Boolean) {
+                        if(((boolean) o))
+                            System.out.print("#");
+                        else
+                            System.out.print(".");
+                    }
+                    else if(o instanceof Character) {
+                        System.out.print(((char) o));
+                    }
+                    else if(o instanceof Integer)
+                        System.out.print(String.valueOf(o).charAt(0));
+                }
+                else
+                    System.out.print(filler);
+            }
+            System.out.print(" -> " + y);
             System.out.println();
         }
     }
