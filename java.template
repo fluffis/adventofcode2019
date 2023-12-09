@@ -18,7 +18,7 @@ public class Day$day extends AocDay {
     }
 
     @Override
-    public String b(Scanner in, boolean isTest) {
+    public String b(Scanner in, boolean isTest) throws Exception {
         return null;
     }
 }
