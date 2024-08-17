@@ -2,6 +2,7 @@ package se.fluff.aoc2023.days;
 
 import se.fluff.aoc.AocDay;
 import java.util.*;
+import java.util.Map;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
